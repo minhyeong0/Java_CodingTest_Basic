@@ -15,10 +15,6 @@ class Main2{
 		int result = input - 543;
 		
         bw.write(String.valueOf(result));
-		
-		//
 		bw.flush();
-        br.close();
-        bw.close();
 	}
 }
