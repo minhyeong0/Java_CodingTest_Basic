@@ -4,10 +4,9 @@ import java.io.IOException;
 import java.util.StringTokenizer;
 
 
-class Main1{
+class Main1 {
+	
 	public static void main(String[] args) throws IOException{
-		
-		//1. 주사위 3개를 입력받는다.
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		
@@ -15,16 +14,25 @@ class Main1{
 		int b = Integer.parseInt(st.nextToken());
 		int c = Integer.parseInt(st.nextToken());
 		
-		//2. 눈이 몇개가 같은지 확인하고 크기가 큰순서대로 나열한다.
 		if(a >= b){
 			if(a > b){
-				// a > b
 				if(a >= c){
 					if(a > c){
-						// a > c > b
-						System.out.println(a * 100);
+						//a > c, a > b
+						if(b >= c){
+							if(b > c){
+								//c < b < a
+								System.out.println(a * 100);
+							}else{
+								//b = c < a
+								System.out.println(1000 + b * 100);
+							}
+						}else{
+							//b < c < a
+							System.out.println(a * 100);
+						}
 					}else{
-						// a = c > b
+						//b < a = c
 						System.out.println(1000 + a * 100);
 					}
 				}else{
@@ -32,10 +40,10 @@ class Main1{
 					System.out.println(c * 100);
 				}
 			}else{
-				//a = b
+			//a = b
 				if(a >= c){
 					if(a > c){
-						//a = b > c
+						//c < a = b
 						System.out.println(1000 + a * 100);
 					}else{
 						//a = b = c
@@ -57,8 +65,19 @@ class Main1{
 					System.out.println(1000 + a * 100);
 				}
 			}else{
-				//a < b < c
-				System.out.println(c * 100);
+				//a < c, a < b
+				if(b >= c){
+					if(b > c){
+						//a < c < b
+						System.out.println(b * 100);
+					}else{
+						//a < b = c
+						System.out.println(1000 + b * 100);
+					}
+				}else{
+					//a < b < c
+					System.out.println(c * 100);
+				}
 			}
 		}
 	}
