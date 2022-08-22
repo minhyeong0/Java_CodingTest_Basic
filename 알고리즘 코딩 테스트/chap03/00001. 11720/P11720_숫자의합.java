@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 
-class Main1_11720 {
+class P11720_숫자의합{
 	
 	//시간제한이 1초이므로 연산횟수는 1억번 (100,000,000)임
 	//N의 범위가 1 <= N <= 100 이므로 

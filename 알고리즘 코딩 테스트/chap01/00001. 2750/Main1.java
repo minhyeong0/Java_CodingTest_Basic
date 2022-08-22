@@ -3,7 +3,7 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 
 
-class Main1_2750{
+class Main1{
 	public static void main(String[] args){
 		//시간 제한이 2초이므로 
 		//연산 횟수는 2 * 100,000,000 = 2억 (콤마가 2개이면 1억)
