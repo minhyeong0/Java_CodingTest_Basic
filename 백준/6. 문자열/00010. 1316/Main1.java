@@ -1,12 +1,10 @@
-package debugTest;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
 
 
 
-class Debug{
+class Main1{
 	
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -18,7 +16,7 @@ class Debug{
 			boolean[] arr = new boolean[26];
 			boolean sw = false;
 			for(int j=0; j<a.length; j++){
-				arr[a[i] - 97] = true;
+				arr[a[j] - 97] = true;
 			}
 			
 			for(int j=0; j<arr.length; j++){
