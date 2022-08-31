@@ -1,25 +1,26 @@
-package debugTest;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
+import java.util.StringTokenizer;
 
 
 
-class Debug {
+class Main_1{
 	
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		
 		int a = Integer.parseInt(br.readLine());
-		String b = br.readLine() + " ";
-		b = b.replace("#", "1").replace("*", "0");
-		StringBuilder sb = new StringBuilder();
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		int[] c = new int[a+1];
 		
 		for(int i=1; i<=a; i++){
-			sb.append((char)(Integer.parseInt(b.substring(0, 8))));
-			b = b.substring(8);
+			c[i] = Integer.parseInt(st.nextToken());
 		}
 		
+		for(int i=1; i<=a; i++){
+			if(c[i] > c[i-1]){
+				System.out.print(c[i] + " ");
+			}
+		}
 	}
 }
