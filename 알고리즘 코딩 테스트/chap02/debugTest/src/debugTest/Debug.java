@@ -1,25 +1,31 @@
 package debugTest;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.IOException;
+import java.util.Scanner;
 
 
 
-class Debug {
+
+class Debug{
+	//제곱근 소수판별
 	
-	public static void main(String[] args) throws IOException{
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int count = 0;
 		
-		int a = Integer.parseInt(br.readLine());
-		String b = br.readLine() + " ";
-		b = b.replace("#", "1").replace("*", "0");
-		StringBuilder sb = new StringBuilder();
-		
-		for(int i=1; i<=a; i++){
-			sb.append((char)(Integer.parseInt(b.substring(0, 8))));
-			b = b.substring(8);
+		for(int i=2; i<=n; i++){
+			boolean sw = false;
+			for(int j=2; j<=Math.sqrt(i); j++){
+				if(i % j != 0) {
+					sw = true;
+					break;
+				}
+			}
+			if(sw) count++;
+			
 		}
 		
+		System.out.println(count);
 	}
 }
+
