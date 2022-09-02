@@ -1,28 +1,24 @@
 import java.util.Scanner;
 
 
-
-
-
+//제곱근
 class Main_1{
 	
-	public int Solution(int n){
-		int answer = 1;
-			for(int i=2; i<=n; i++){
-				boolean sw = false;
-				for(int j=1; j*j<=i; j++){
-					if(i % j != 0) sw = true;
-				}
-				if(sw) answer++;
-			}
-		return answer;
-	}
-	
-	public static void main(String[] args) {
-		Main_1 T = new Main_1();
+	public static void main(String[] args){
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
-		System.out.println(T.Solution(n));
-		System.out.println(Math.sqrt(2));
+		int cnt = 1;
+		
+		for(int i=3; i<=n; i=i+2){
+			boolean sw = true;
+			for(int j=2; j<=Math.sqrt(i); j++){
+				if(i % j == 0){
+					sw = false;
+					break;
+				}
+			}
+			if(sw) cnt++;
+		}
+		System.out.println(cnt);
 	}
 }
