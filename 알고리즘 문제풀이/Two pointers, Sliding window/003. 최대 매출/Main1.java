@@ -1,12 +1,10 @@
-package debugTest;
-
 import java.util.*;
 
 
 
 
 
-class Debug {
+class Main1 {
 	
 	public int Solution(int n, int k, int[] arr){
 		int answer = 0, sum = 0;
@@ -23,7 +21,7 @@ class Debug {
 	}
 	
 	public static void main(String[] args){
-		Debug T = new Debug();
+		Main1 T = new Main1();
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
 		int k = sc.nextInt();
