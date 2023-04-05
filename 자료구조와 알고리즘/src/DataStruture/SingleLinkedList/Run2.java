@@ -8,10 +8,13 @@ public class Run2 {
         MyLinkedList.addNode(3);
         MyLinkedList.printAll();
 
-        MyLinkedList.addInsideNode(5,1);
+        MyLinkedList.addNodeInside(5,1);
         MyLinkedList.printAll();
 
-        MyLinkedList.addInsideNode(6,3);
+        MyLinkedList.addNodeInside(6,3);
+        MyLinkedList.printAll();
+
+        MyLinkedList.addNodeInside(7,20);
         MyLinkedList.printAll();
     }
 }
