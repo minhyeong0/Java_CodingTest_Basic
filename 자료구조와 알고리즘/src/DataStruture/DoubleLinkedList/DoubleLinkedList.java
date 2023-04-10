@@ -1,47 +1,71 @@
 package DataStruture.DoubleLinkedList;
 
 public class DoubleLinkedList<T> {
-    public Node<T> head = null;
-    public Node<T> tail = null;
+    Node<T> head = null;
+    Node<T> tail = null;
 
-    public class Node<T>{
+    class Node<T> {
         T data;
         Node<T> prev = null;
         Node<T> next = null;
 
-        public Node(T data){
+        Node(T data) {
             this.data = data;
         }
     }
 
-    public void addNode(T data){
-        if(this.head == null){
-            this.head = new Node<>(data);
-            this.tail = this.head;
-        }else{
-            Node<T> node = this.head;
-            while (node.next != null){
+    public void addNode(T data) {
+        if (head == null) {
+            head = new Node<>(data);
+            tail = head;
+        } else {
+            Node<T> node = head;
+            while (node.next != null)
                 node = node.next;
-            }
             node.next = new Node<>(data);
             node.next.prev = node;
-            this.tail = node.next;
+            tail = node.next;
         }
     }
 
-    public boolean insertToFront(T existedData, T addData){
-        if(this.head == null){
-            this.head = new Node<>(addData);
-            this.tail = this.head;
+    public T searchFromHead(T isData) {
+        if (head == null) return null;
+        else {
+            Node<T> node = head;
+            while (node != null) {
+                if (node.data == isData) return node.data;
+                node = node.next;
+            }
+            return null;
+        }
+    }
+
+    public T searchFromTail(T isData) {
+        if (head == null) return null;
+        else {
+            Node<T> node = tail;
+            while (node != null) {
+                if (node.data == isData) return node.data;
+                node = node.prev;
+            }
+            return null;
+        }
+    }
+
+    public boolean insertToFront(T existedData, T addData) {
+        if (head == null) {
+            head = new Node<>(addData);
+            tail = head;
             return true;
-        } else if(this.head.data == existedData){
+        } else if (head.data == existedData){
             Node<T> newHead = new Node<>(addData);
-            newHead.next = this.head;
-            this.head = newHead;
+            newHead.next = head;
+            head = newHead;
+            //head.next.prev = head;
             return true;
-        }else{
-            Node<T> node = this.head;
-            while (node != null){
+        } else {
+            Node<T> node = head;
+            while (node != null) {
                 if(node.data == existedData) {
                     Node<T> nodePrev = node.prev;
                     nodePrev.next = new Node<>(addData);
@@ -49,57 +73,25 @@ public class DoubleLinkedList<T> {
                     nodePrev.next.prev = nodePrev;
                     node.prev = nodePrev.next;
                     return true;
-                }else{
-                    node = node.next;
                 }
+                node = node.next;
             }
             return false;
         }
     }
 
-    public T searchFromHead(T isData){
-        if(this.head == null)
-            return null;
+    public void printAll() {
+        if (head == null)
+            System.out.println("[ ]");
         else {
-            Node<T> node = this.head;
-            while (node != null){
-                if(node.data == isData)
-                    return node.data;
-                else
-                    node = node.next;
-            }
-            return null;
-        }
-    }
-
-    public T searchFromTail(T isData){
-        if(this.head == null)
-            return null;
-        else {
-            Node<T> node = this.tail;
-            while(node != null){
-                if(node.data == isData)
-                    return node.data;
-                else
-                    node = node.prev;
-            }
-            return null;
-        }
-    }
-
-    public void printAll(){
-        if(this.head != null){
-            Node<T> node = this.head;
-            System.out.print("[" + node.data + ", ");
-            while (node.next != null) {
+            Node<T> node = head;
+            System.out.print("[ ");
+            while (node != null) {
+                if (node.next == null) break;
+                System.out.print(node.data + ", ");
                 node = node.next;
-                if(node.next != null)
-                    System.out.print(node.data + ", ");
-                else
-                    System.out.println(node.data + "]");
             }
+            System.out.println(node.data + " ]");
         }
     }
-
-
 }
